@@ -98,9 +98,6 @@ module Deis
       )
     end
 
-    def config_unset
-    end
-
     def domains_add
     end
 
