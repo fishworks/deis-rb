@@ -179,7 +179,12 @@ module Deis
       return get('/v1/apps/%s/releases' % app_name)
     end
 
-    def releases_rollback
+    def releases_rollback(app_name, release)
+      return post('/v1/apps/%s/releases' % app_name,
+        {
+          'version' => release
+        }
+      )
     end
 
     def users_list
