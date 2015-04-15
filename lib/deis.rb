@@ -22,6 +22,10 @@ module Deis
       )
     end
 
+    def admins_demote(username)
+      return delete('/v1/admin/perms/%s' % username)
+    end
+
     def apps_create(app_name=nil)
       if app_name.nil?
         return post('/v1/apps')
