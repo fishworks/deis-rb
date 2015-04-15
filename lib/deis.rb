@@ -7,7 +7,7 @@ module Deis
     def initialize(uri, api_key)
       @api_key = api_key
       @controller_uri = uri
-      @headers = {'Authorization' => 'token %s' % @api_key}
+      @headers = {'Authorization' => 'token %s' % @api_key, 'Content-Type' => 'application/json'}
     end
 
     def admins_list
@@ -135,7 +135,7 @@ module Deis
     end
 
     def ps_scale(app_name, types)
-      return post('/v1/apps/%s/scale' % app_name, :body => types)
+      return post('/v1/apps/%s/scale' % app_name, types)
     end
 
     def keys_add(id, type, key)
@@ -208,7 +208,7 @@ module Deis
     def post(path, body=nil)
       return HTTParty.post(
         '%s%s' % [@controller_uri, path],
-        :body => body,
+        :body => JSON.dump(body),
         :headers => @headers)
     end
   end
