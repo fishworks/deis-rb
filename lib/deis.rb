@@ -39,15 +39,15 @@ module Deis
     end
 
     def apps_list
-      return get('/v1/apps')
+      return get('/v1/apps').parsed_response['results']
     end
 
     def apps_info(app_name)
-      return get('/v1/apps/%s' % app_name)
+      return get('/v1/apps/%s' % app_name).parsed_response
     end
 
     def apps_logs(app_name)
-      return get('/v1/apps/%s/logs' % app_name)
+      return get('/v1/apps/%s/logs' % app_name).parsed_response
     end
 
     def apps_run(app_name, command)
@@ -82,7 +82,7 @@ module Deis
     end
 
     def builds_list(app_name)
-      return get('/v1/apps/%s/builds' % app_name)
+      return get('/v1/apps/%s/builds' % app_name).parsed_response['results']
     end
 
     def certs_add(cert, key)
@@ -95,7 +95,7 @@ module Deis
     end
 
     def certs_list
-      return get('/v1/certs')
+      return get('/v1/certs').parsed_response['results']
     end
 
     def certs_remove(common_name)
@@ -103,7 +103,7 @@ module Deis
     end
 
     def config_list(app_name)
-      return get('/v1/apps/%s/config' % app_name)
+      return get('/v1/apps/%s/config' % app_name).parsed_response['results']
     end
 
     def config_set(app_name, config)
@@ -127,15 +127,15 @@ module Deis
     end
 
     def domains_list(app_name)
-      return get('/v1/apps/%s/domains' % app_name)
+      return get('/v1/apps/%s/domains' % app_name).parsed_response['results']
     end
 
     def ps_list(app_name)
-      return get('v1/apps/%s/containers' % app_name)
+      return get('/v1/apps/%s/containers' % app_name).parsed_response['results']
     end
 
     def ps_scale(app_name, types)
-      return post('v1/apps/%s/containers' % app_name, types)
+      return post('/v1/apps/%s/containers' % app_name, types)
     end
 
     def keys_add(id, type, key)
@@ -148,7 +148,7 @@ module Deis
     end
 
     def keys_list
-      return get('/v1/keys')
+      return get('/v1/keys').parsed_response['results']
     end
 
     def keys_remove(key)
@@ -156,7 +156,7 @@ module Deis
     end
 
     def perms_list(app_name)
-      return get('/v1/apps/%s/perms' % app_name)
+      return get('/v1/apps/%s/perms' % app_name).parsed_response['results']
     end
 
     def perms_create(app_name, username)
@@ -172,11 +172,11 @@ module Deis
     end
 
     def releases_info(app_name, release)
-      return get('/v1/apps/%s/releases/%s' % [app_name, release])
+      return get('/v1/apps/%s/releases/%s' % [app_name, release]).parsed_response
     end
 
     def releases_list(app_name)
-      return get('/v1/apps/%s/releases' % app_name)
+      return get('/v1/apps/%s/releases' % app_name).parsed_response['results']
     end
 
     def releases_rollback(app_name, release)
@@ -188,7 +188,7 @@ module Deis
     end
 
     def users_list
-      return get('/v1/users')
+      return get('/v1/users').parsed_response['results']
     end
 
     private
