@@ -1,12 +1,12 @@
-# Deir
+# Deis-rb
 
 Deis Controller API bindings in Ruby.
 
 ## Install
 
 ```bash
-$ gem build deir.gemspec
-$ gem install deir-0.0.1.pre.gem
+$ gem build deis.gemspec
+$ gem install deis-0.0.1.pre.gem
 ```
 
 ## Usage
