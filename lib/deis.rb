@@ -171,7 +171,8 @@ module Deis
       return delete('/v1/apps/%s/perms/%s' % [app_name, username])
     end
 
-    def releases_info
+    def releases_info(app_name, release)
+      return get('/v1/apps/%s/releases/%s' % [app_name, release])
     end
 
     def releases_list
