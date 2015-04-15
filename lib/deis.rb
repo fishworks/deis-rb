@@ -139,7 +139,8 @@ module Deis
       return delete('/v1/keys/%s' % key)
     end
 
-    def perms_list
+    def perms_list(app_name)
+      return get('/v1/apps/%s/perms' % app_name)
     end
 
     def perms_create
