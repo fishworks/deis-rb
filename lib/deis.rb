@@ -175,7 +175,8 @@ module Deis
       return get('/v1/apps/%s/releases/%s' % [app_name, release])
     end
 
-    def releases_list
+    def releases_list(app_name)
+      return get('/v1/apps/%s/releases' % app_name)
     end
 
     def releases_rollback
