@@ -86,7 +86,8 @@ module Deis
       return destroy('/v1/certs/%s' % common_name)
     end
 
-    def config_list
+    def config_list(app_name)
+      return get('/v1/apps/%s/config' % app_name)
     end
 
     def config_set
