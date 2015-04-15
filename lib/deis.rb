@@ -14,6 +14,14 @@ module Deis
       return get('/v1/admin/perms')
     end
 
+    def admins_promote(username)
+      return post('/v1/admin/perms',
+        {
+          'username' => username
+        }
+      )
+    end
+
     def apps_create(app_name=nil)
       if app_name.nil?
         return post('/v1/apps')
