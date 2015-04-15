@@ -122,7 +122,13 @@ module Deis
       return post('v1/apps/%s/containers' % app_name, types)
     end
 
-    def keys_add
+    def keys_add(id, type, key)
+      return post('/v1/keys',
+        {
+          'id' => id,
+          'public' => '%s %s' % [type, key],
+        }
+      )
     end
 
     def keys_list
