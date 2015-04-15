@@ -188,6 +188,7 @@ module Deis
     end
 
     def users_list
+      return get('/v1/users')
     end
 
     private
