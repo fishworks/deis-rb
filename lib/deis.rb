@@ -110,7 +110,8 @@ module Deis
       return delete('/v1/apps/%s/domains/%s' % [app_name, domain])
     end
 
-    def domains_list
+    def domains_list(app_name)
+      return get('/v1/apps/%s/domains' % app_name)
     end
 
     def limits_list
