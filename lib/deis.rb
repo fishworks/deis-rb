@@ -57,7 +57,12 @@ module Deis
       )
     end
 
-    def builds_create
+    def builds_create(app_name, image)
+      return post('/v1/apps/%s/builds' % app_name,
+        {
+          'image' => image
+        }
+      )
     end
 
     def builds_list
