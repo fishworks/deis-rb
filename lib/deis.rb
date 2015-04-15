@@ -69,7 +69,13 @@ module Deis
       return get('/v1/apps/%s/builds' % app_name)
     end
 
-    def certs_add
+    def certs_add(cert, key)
+      return post('/v1/certs',
+        {
+          'certificate' => cert,
+          'key' => key
+        }
+      )
     end
 
     def certs_list
