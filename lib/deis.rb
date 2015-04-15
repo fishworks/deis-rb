@@ -118,7 +118,8 @@ module Deis
       return get('v1/apps/%s/containers' % app_name)
     end
 
-    def ps_scale
+    def ps_scale(app_name, types)
+      return post('v1/apps/%s/containers' % app_name, types)
     end
 
     def keys_add
