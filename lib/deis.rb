@@ -132,6 +132,7 @@ module Deis
     end
 
     def keys_list
+      return get('/v1/keys')
     end
 
     def keys_remove
