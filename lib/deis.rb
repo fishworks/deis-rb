@@ -90,7 +90,12 @@ module Deis
       return get('/v1/apps/%s/config' % app_name)
     end
 
-    def config_set
+    def config_set(app_name, config)
+      return post('/v1/apps/%s/config' % app_name,
+        {
+          'values' => config
+        }
+      )
     end
 
     def config_unset
