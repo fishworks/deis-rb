@@ -155,7 +155,12 @@ module Deis
       return get('/v1/apps/%s/perms' % app_name)
     end
 
-    def perms_create
+    def perms_create(app_name, username)
+      return post('/v1/apps/%s/perms' % app_name,
+        {
+          'username' => username
+        }
+      )
     end
 
     def perms_remove
