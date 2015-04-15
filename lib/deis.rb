@@ -135,7 +135,7 @@ module Deis
     end
 
     def ps_scale(app_name, types)
-      return post('/v1/apps/%s/containers' % app_name, types)
+      return post('/v1/apps/%s/scale' % app_name, :body => types)
     end
 
     def keys_add(id, type, key)
@@ -205,7 +205,7 @@ module Deis
         :headers => @headers)
     end
 
-    def post(path, data=nil)
+    def post(path, body=nil)
       return HTTParty.post(
         '%s%s' % [@controller_uri, path],
         :body => body,
