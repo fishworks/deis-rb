@@ -135,7 +135,8 @@ module Deis
       return get('/v1/keys')
     end
 
-    def keys_remove
+    def keys_remove(key)
+      return delete('/v1/keys/%s' % key)
     end
 
     def perms_list
