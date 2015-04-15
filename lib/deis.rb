@@ -82,7 +82,8 @@ module Deis
       return get('/v1/certs')
     end
 
-    def certs_remove
+    def certs_remove(common_name)
+      return destroy('/v1/certs/%s' % common_name)
     end
 
     def config_list
