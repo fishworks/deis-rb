@@ -98,7 +98,12 @@ module Deis
       )
     end
 
-    def domains_add
+    def domains_add(app_name, domain)
+      return post('/v1/apps/%s/domains' % app_name,
+        {
+          'domain' => domain
+        }
+      )
     end
 
     def domains_remove
