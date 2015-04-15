@@ -65,7 +65,8 @@ module Deis
       )
     end
 
-    def builds_list
+    def builds_list(app_name)
+      return get('/v1/apps/%s/builds' % app_name)
     end
 
     def certs_add
