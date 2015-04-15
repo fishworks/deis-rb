@@ -114,28 +114,10 @@ module Deis
       return get('/v1/apps/%s/domains' % app_name)
     end
 
-    def limits_list
-    end
-
-    def limits_set
-    end
-
-    def limits_unset
-    end
-
     def ps_list
     end
 
     def ps_scale
-    end
-
-    def tags_list
-    end
-
-    def tags_set
-    end
-
-    def tags_unset
     end
 
     def keys_add
