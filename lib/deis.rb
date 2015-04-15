@@ -79,6 +79,7 @@ module Deis
     end
 
     def certs_list
+      return get('/v1/certs')
     end
 
     def certs_remove
