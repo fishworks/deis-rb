@@ -10,6 +10,10 @@ module Deis
       @headers = {'Authorization' => 'token %s' % @api_key}
     end
 
+    def admins_list
+      return get('/v1/admin/perms')
+    end
+
     def apps_create(app_name=nil)
       if app_name.nil?
         return post('/v1/apps')
