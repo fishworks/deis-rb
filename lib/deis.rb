@@ -106,7 +106,8 @@ module Deis
       )
     end
 
-    def domains_remove
+    def domains_remove(app_name, domain)
+      return delete('/v1/apps/%s/domains/%s' % [app_name, domain])
     end
 
     def domains_list
