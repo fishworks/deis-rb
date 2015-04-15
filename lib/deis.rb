@@ -114,7 +114,8 @@ module Deis
       return get('/v1/apps/%s/domains' % app_name)
     end
 
-    def ps_list
+    def ps_list(app_name)
+      return get('v1/apps/%s/containers' % app_name)
     end
 
     def ps_scale
