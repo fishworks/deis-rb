@@ -167,7 +167,8 @@ module Deis
       )
     end
 
-    def perms_remove
+    def perms_remove(app_name, username)
+      return delete('/v1/apps/%s/perms/%s' % [app_name, username])
     end
 
     def releases_info
